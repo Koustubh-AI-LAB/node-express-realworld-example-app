@@ -12,10 +12,13 @@ test("log in with a known fixture account", async () => {
   };
   const { status, body } = await apiClient.request("POST", "/api/users/login", { body: requestBody, auth: "none" });
 
-  // assertion: status_200
-  expect(status === 200).toBeTruthy();
-  // assertion: has_token
-  expect(body.user.token).toBeTruthy();
-  // assertion: correct_email
-  expect(body.user.email === 'spec2test_login_fixture@spec2test.dev').toBeTruthy();
+  await test.step("assertion: status_200", async () => {
+    expect(status === 200).toBeTruthy();
+  });
+  await test.step("assertion: has_token", async () => {
+    expect(body.user.token).toBeTruthy();
+  });
+  await test.step("assertion: correct_email", async () => {
+    expect(body.user.email === 'spec2test_login_fixture@spec2test.dev').toBeTruthy();
+  });
 });

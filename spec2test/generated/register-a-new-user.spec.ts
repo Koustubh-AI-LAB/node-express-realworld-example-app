@@ -14,8 +14,10 @@ test("register a new user", async () => {
   };
   const { status, body } = await apiClient.request("POST", "/api/users", { body: requestBody, auth: "none" });
 
-  // assertion: status_201
-  expect(status === 201).toBeTruthy();
-  // assertion: has_token
-  expect(body.user.token).toBeTruthy();
+  await test.step("assertion: status_201", async () => {
+    expect(status === 201).toBeTruthy();
+  });
+  await test.step("assertion: has_token", async () => {
+    expect(body.user.token).toBeTruthy();
+  });
 });

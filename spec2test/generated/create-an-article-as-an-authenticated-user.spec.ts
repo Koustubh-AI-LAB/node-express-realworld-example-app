@@ -17,8 +17,10 @@ test("create an article as an authenticated user", async () => {
   };
   const { status, body } = await apiClient.request("POST", "/api/articles", { body: requestBody, auth: "user" });
 
-  // assertion: status_201
-  expect(status === 201).toBeTruthy();
-  // assertion: has_slug
-  expect(body.article.slug).toBeTruthy();
+  await test.step("assertion: status_201", async () => {
+    expect(status === 201).toBeTruthy();
+  });
+  await test.step("assertion: has_slug", async () => {
+    expect(body.article.slug).toBeTruthy();
+  });
 });
