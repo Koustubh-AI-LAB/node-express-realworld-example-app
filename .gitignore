@@ -40,3 +40,7 @@ testem.log
 Thumbs.db
 
 .nx/cache
+
+# spec2test/ - Playwright's own run artifacts, not the tests themselves
+test-results/
+playwright-report/

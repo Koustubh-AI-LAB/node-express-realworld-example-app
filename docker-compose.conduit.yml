@@ -1,0 +1,24 @@
+# Conduit's own Postgres, separate from every other project's.
+#
+# Port 5436, deliberately: spec2test-jira-pilot's own State Service uses
+# 5435, TestForge uses 5434 - a collision on any of these shows up as a
+# silent connection to the wrong database, not a clear error.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: conduit
+      POSTGRES_PASSWORD: conduit
+      POSTGRES_DB: conduit
+    ports:
+      - "5436:5432"
+    volumes:
+      - conduit_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U conduit"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  conduit_pgdata:
