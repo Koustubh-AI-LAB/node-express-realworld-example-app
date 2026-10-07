@@ -1,5 +1,7 @@
 # ![Node/Express/Prisma Example App](project-logo.png)
 
+> **About this copy.** This repository is a copy of [gothinkster/node-express-realworld-example-app](https://github.com/gothinkster/node-express-realworld-example-app), used as the target app for [spec2test-jira-pilot](https://github.com/Koustubh-AI-LAB/spec2test-jira-pilot). The upstream project declares the MIT license in its `package.json`; all credit for the application goes to its original authors. Changes made here: the `spec2test/` directory, `docker-compose.conduit.yml`, and the matching `package.json` and `.gitignore` entries.
+
 [![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)
 
 > ### Example Node (Express + Prisma) codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) API spec.
